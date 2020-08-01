@@ -35,4 +35,13 @@ public class PetTests {
         assertEquals(100, pet.getFullness());
     }
 
+    @Test
+    void testFeedPet_hungrinessNeverLowerThanZero() {
+        Pet pet = new Pet();
+
+        pet.feed();
+
+        assertEquals(0, pet.getHungriness());
+    }
+
 }

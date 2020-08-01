@@ -15,6 +15,9 @@ public class Pet {
         if (fullness > 100) {
             fullness = 100;
         }
+        if (hungriness < 0) {
+            hungriness = 0;
+        }
     }
 
     public int getHungriness() {
