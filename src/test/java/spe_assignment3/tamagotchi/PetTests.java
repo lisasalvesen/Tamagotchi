@@ -1,47 +1,59 @@
 package spe_assignment3.tamagotchi;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PetTests {
+    private Pet pet;
+
+    @BeforeEach
+    public void init() {
+        pet = new Pet(50, 50);
+    }
 
     @Test
     void testFeedingPet_decreasesHungriness() {
-        Pet pet = new Pet();
-        pet.setHungriness(70);
-
+        // arrange
+        // act
         pet.feed();
 
-        assertEquals(50, pet.getHungriness());
+        // assert
+        assertEquals(30, pet.getHungriness());
     }
 
     @Test
     void testFeedPet_increaseFullness() {
-        Pet pet = new Pet();
-
+        // arrange
+        // act
         pet.feed();
 
-        assertEquals(20, pet.getFullness());
+        // assert
+        assertEquals(70, pet.getFullness());
     }
 
     @Test
     void testFeedPet_fullnessNeverHigherThan100() {
-        Pet pet = new Pet();
-        pet.setFullness(90);
+        // arrange
+        Pet pet = new Pet(1, 90);
 
+        // act
         pet.feed();
 
+        // assert
         assertEquals(100, pet.getFullness());
     }
 
     @Test
-    void testFeedPet_hungrinessNeverLowerThanZero() {
-        Pet pet = new Pet();
+    void testFeedPet_hungrinessNeverLowerThanOne() {
+        // arrange
+        Pet pet = new Pet(1, 1);
 
+        // act
         pet.feed();
 
-        assertEquals(0, pet.getHungriness());
+        // assert
+        assertEquals(1, pet.getHungriness());
     }
-
 }
