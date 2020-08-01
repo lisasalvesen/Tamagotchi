@@ -16,4 +16,13 @@ public class PetTests {
         assertEquals(50, pet.getHungriness());
     }
 
+    @Test
+    void testFeedPet_increaseFullness() {
+        Pet pet = new Pet();
+
+        pet.feed();
+
+        assertEquals(20, pet.getFullness());
+    }
+
 }
