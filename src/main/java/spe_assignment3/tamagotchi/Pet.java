@@ -4,20 +4,28 @@ public class Pet {
     private int hungriness;
     private int fullness;
 
-    public void setHungriness(int hungriness) {
-        this.hungriness = hungriness;
+    public void setHungriness(int i) {
+        hungriness = i;
     }
 
     public void feed() {
-        this.hungriness -= 20;
-        this.fullness += 20;
+        hungriness -= 20;
+        fullness += 20;
+
+        if (fullness > 100) {
+            fullness = 100;
+        }
     }
 
     public int getHungriness() {
-        return this.hungriness;
+        return hungriness;
     }
 
     public int getFullness() {
-        return this.fullness;
+        return fullness;
+    }
+
+    public void setFullness(int i) {
+        fullness = i;
     }
 }

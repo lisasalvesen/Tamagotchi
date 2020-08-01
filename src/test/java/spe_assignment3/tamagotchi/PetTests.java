@@ -25,4 +25,14 @@ public class PetTests {
         assertEquals(20, pet.getFullness());
     }
 
+    @Test
+    void testFeedPet_fullnessNeverHigherThan100() {
+        Pet pet = new Pet();
+        pet.setFullness(90);
+
+        pet.feed();
+
+        assertEquals(100, pet.getFullness());
+    }
+
 }
