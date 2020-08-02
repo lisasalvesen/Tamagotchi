@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'spe_assignment3'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testCompile "org.junit.jupiter:junit-jupiter-api:5.6.2"
+    testCompile "org.junit.jupiter:junit-jupiter-params:5.6.2"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.6.2"
+    testCompile "org.mockito:mockito-core:2.+"
+}
+
+test {
+    useJUnitPlatform()
+}
