@@ -17,7 +17,7 @@ class TamagotchiApplicationTests {
         // arrange
         TamagotchiApplication application = new TamagotchiApplication();
         BufferedReader in = mock(BufferedReader.class);
-        TamagotchiInputReader reader = mock(TamagotchiInputReader.class);
+        InputEvaluator reader = mock(InputEvaluator.class);
         when(in.readLine()).thenReturn("FEED", "EXIT");
         when(reader.evaluateInput("FEED")).thenReturn(true);
         when(reader.evaluateInput("EXIT")).thenReturn(false);
