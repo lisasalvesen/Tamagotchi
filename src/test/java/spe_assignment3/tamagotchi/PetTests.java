@@ -67,4 +67,16 @@ public class PetTests {
         assertEquals(70, pet.getHappiness());
     }
 
+    @Test
+    void testPlay_happinessNeverHigherThan100() {
+        // arrange
+        Pet pet = new Pet(50, 50, 90);
+
+        // act
+        pet.play();
+
+        // assert
+        assertEquals(100, pet.getHappiness());
+}
+
 }

@@ -25,6 +25,9 @@ public class Pet {
 
     public void play() {
         happiness += 20;
+        if (happiness > 100) {
+            happiness = 100;
+        }
     }
 
     public int getHungriness() {
