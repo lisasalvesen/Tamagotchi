@@ -21,7 +21,7 @@ public class TamagotchiApplication {
 
     public static void main(String[] args) throws IOException {
         BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-        Pet pet = new Pet(0, 0, 50);
+        Pet pet = new Pet(50, 50, 50, 50);
         InputEvaluator reader = new InputEvaluator(pet);
         SpringApplication.run(TamagotchiApplication.class, args);
         new TamagotchiApplication().start(stdin, reader);

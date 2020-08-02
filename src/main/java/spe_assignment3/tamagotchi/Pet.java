@@ -4,11 +4,13 @@ public class Pet {
     private int hungriness;
     private int fullness;
     private int happiness;
+    private int tiredness;
 
-    public Pet(int hunger, int full, int happy) {
+    public Pet(int hunger, int full, int happy, int tired) {
         hungriness = hunger;
         fullness = full;
         happiness = happy;
+        tiredness = tired;
     }
 
     public String feed() {
@@ -25,6 +27,7 @@ public class Pet {
 
     public void play() {
         happiness += 20;
+        tiredness += 20;
         if (happiness > 100) {
             happiness = 100;
         }
@@ -40,5 +43,9 @@ public class Pet {
 
     public int getHappiness() {
         return happiness;
+    }
+
+    public int getTiredness() {
+        return tiredness;
     }
 }

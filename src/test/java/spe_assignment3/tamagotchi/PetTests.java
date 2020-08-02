@@ -10,7 +10,7 @@ public class PetTests {
 
     @BeforeEach
     public void init() {
-        pet = new Pet(50, 50, 50);
+        pet = new Pet(50, 50, 50, 50);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class PetTests {
     @Test
     void testFeedPet_fullnessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(1, 90, 50);
+        Pet pet = new Pet(1, 90, 50, 50);
 
         // act
         pet.feed();
@@ -48,7 +48,7 @@ public class PetTests {
     @Test
     void testFeedPet_hungrinessNeverLowerThanOne() {
         // arrange
-        Pet pet = new Pet(1, 1, 50);
+        Pet pet = new Pet(1, 1, 50, 50);
 
         // act
         pet.feed();
@@ -68,15 +68,25 @@ public class PetTests {
     }
 
     @Test
+    void testPlay_increasesTiredness() {
+        // arrange
+        // act
+        pet.play();
+
+        // assert
+        assertEquals(70, pet.getTiredness());
+    }
+
+    @Test
     void testPlay_happinessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(50, 50, 90);
+        Pet pet = new Pet(50, 50, 90, 50);
 
         // act
         pet.play();
 
         // assert
         assertEquals(100, pet.getHappiness());
-}
+    }
 
 }
