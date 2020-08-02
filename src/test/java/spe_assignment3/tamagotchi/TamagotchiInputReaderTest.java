@@ -19,7 +19,7 @@ public class TamagotchiInputReaderTest {
         System.setOut(out);
 
         // act
-        reader.readInput(input);
+        reader.evaluateInput(input);
 
         // assert
         verify(pet, times(1)).feed();

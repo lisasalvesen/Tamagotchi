@@ -7,10 +7,16 @@ public class TamagotchiInputReader {
         this.pet = pet;
     }
 
-    public void readInput(String input) {
+    public boolean evaluateInput(String input) {
+        String output;
         switch (input) {
             case "FEED":
-                System.out.println(pet.feed());
+                output = pet.feed();
+                System.out.println(output);
+                return true;
+            default:
+                System.out.println("temporary");
+                return true;
         }
     }
 }
