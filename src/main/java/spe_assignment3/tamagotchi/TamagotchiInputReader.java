@@ -15,7 +15,7 @@ public class TamagotchiInputReader {
                 System.out.println(output);
                 return true;
             default:
-                System.out.println("temporary");
+                System.out.println("Tamagotchi does not understand. Please try again.");
                 return true;
         }
     }
