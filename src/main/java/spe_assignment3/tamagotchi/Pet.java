@@ -3,10 +3,12 @@ package spe_assignment3.tamagotchi;
 public class Pet {
     private int hungriness;
     private int fullness;
+    private int happiness;
 
-    public Pet(int hunger, int full) {
+    public Pet(int hunger, int full, int happy) {
         hungriness = hunger;
         fullness = full;
+        happiness = happy;
     }
 
     public String feed() {
@@ -21,11 +23,19 @@ public class Pet {
         return "Yummy!";
     }
 
+    public void play() {
+        happiness += 20;
+    }
+
     public int getHungriness() {
         return hungriness;
     }
 
     public int getFullness() {
         return fullness;
+    }
+
+    public int getHappiness() {
+        return happiness;
     }
 }
