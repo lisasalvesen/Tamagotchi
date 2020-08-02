@@ -31,6 +31,9 @@ public class Pet {
         if (happiness > 100) {
             happiness = 100;
         }
+        if (tiredness > 100) {
+            tiredness = 100;
+        }
     }
 
     public int getHungriness() {
