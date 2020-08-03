@@ -14,7 +14,7 @@ public class PetTests {
     }
 
     @Test
-    void testFeedingPet_decreasesHungriness() {
+    void testFeedingPet_decreaseHungriness() {
         // arrange
         // act
         pet.feed();
@@ -36,7 +36,7 @@ public class PetTests {
     @Test
     void testFeedPet_fullnessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(1, 90, 50, 50);
+        Pet pet = new Pet(50, 90, 50, 50);
 
         // act
         pet.feed();
@@ -48,7 +48,7 @@ public class PetTests {
     @Test
     void testFeedPet_hungrinessNeverLowerThanOne() {
         // arrange
-        Pet pet = new Pet(1, 1, 50, 50);
+        Pet pet = new Pet(1, 50, 50, 50);
 
         // act
         pet.feed();
@@ -58,7 +58,7 @@ public class PetTests {
     }
 
     @Test
-    void testPlay_increasesHappiness() {
+    void testPlay_increaseHappiness() {
         // arrange
         // act
         pet.play();
@@ -68,7 +68,7 @@ public class PetTests {
     }
 
     @Test
-    void testPlay_increasesTiredness() {
+    void testPlay_increaseTiredness() {
         // arrange
         // act
         pet.play();
@@ -99,6 +99,16 @@ public class PetTests {
 
         // assert
         assertEquals(100, pet.getTiredness());
+    }
+
+    @Test
+    void testSleep_decreaseTirednessToOne() {
+        // arrange
+        // act
+        pet.sleep();
+
+        // assert
+        assertEquals(1, pet.getTiredness());
     }
 
 }

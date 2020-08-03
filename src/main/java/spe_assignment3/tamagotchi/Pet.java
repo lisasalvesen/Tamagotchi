@@ -37,6 +37,10 @@ public class Pet {
         return "What a fun game!";
     }
 
+    public void sleep() {
+        tiredness = 1;
+    }
+
     public int getHungriness() {
         return hungriness;
     }
