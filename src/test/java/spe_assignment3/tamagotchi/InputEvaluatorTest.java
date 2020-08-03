@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 public class InputEvaluatorTest {
 
     @Test
-    void testEvaluateInput_feed() {
+    void testEvaluateInput_inputFeed_petEats() {
         // arrange
         final Pet pet = mock(Pet.class);
         final InputEvaluator reader = new InputEvaluator(pet);
@@ -28,7 +28,7 @@ public class InputEvaluatorTest {
     }
 
     @Test
-    void testEvaluateInput_play() {
+    void testEvaluateInput_inputPlay_playWithPet() {
         // arrange
         final Pet pet = mock(Pet.class);
         final InputEvaluator reader = new InputEvaluator(pet);
@@ -46,11 +46,11 @@ public class InputEvaluatorTest {
     }
 
     @Test
-    void testEvaluateInput_petSleeps() {
+    void testEvaluateInput_inputBed_petSleeps() {
         // arrange
         final Pet pet = mock(Pet.class);
         final InputEvaluator reader = new InputEvaluator(pet);
-        final String input = "SLEEP";
+        final String input = "BED";
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);
 
@@ -64,7 +64,25 @@ public class InputEvaluatorTest {
     }
 
     @Test
-    void testEvaluateInput_exitGame() {
+    void testEvaluateInput_inputPoop_petPoops() {
+        // arrange
+        final Pet pet = mock(Pet.class);
+        final InputEvaluator reader = new InputEvaluator(pet);
+        final String input = "POOP";
+        final PrintStream out = mock(PrintStream.class);
+        System.setOut(out);
+
+        // act
+        boolean result = reader.evaluateInput(input);
+
+        // assert
+        verify(pet, times(1)).poop();
+        verify(out).println("Don't forget to flush!");
+        assertTrue(result);
+    }
+
+    @Test
+    void testEvaluateInput_inputExit_exitGame() {
         // arrange
         final Pet pet = mock(Pet.class);
         final InputEvaluator reader = new InputEvaluator(pet);
@@ -81,7 +99,7 @@ public class InputEvaluatorTest {
     }
 
     @Test
-    void testEvaluateInput_invalidInput_user() {
+    void testEvaluateInput_invalidInput_userHasToTryAgain() {
         // arrange
         final Pet pet = mock(Pet.class);
         final InputEvaluator reader = new InputEvaluator(pet);

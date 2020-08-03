@@ -8,26 +8,34 @@ public class InputEvaluator {
     }
 
     public boolean evaluateInput(String input) {
-        String output;
-        switch (input) {
-            case "FEED":
-                pet.feed();
-                System.out.println("Yummy!");
-                return true;
-            case "PLAY":
-                pet.play();
-                System.out.println("What a fun game!");
-                return true;
-            case "BED":
-                pet.sleep();
-                System.out.println("Yawn... Zzzzz...");
-                return true;
-            case "EXIT":
-                System.out.println("Goodbye!");
-                return false;
-            default:
-                System.out.println("Tamagotchi does not understand. Please try again.");
-                return true;
+        boolean continueGame;
+        /*
+        I would prefer to use a switch statement in this case, but I had problems
+        in the past to get branch coverage in switch statements, so I decided on if/else.
+        */
+        if (input.equals("FEED")) {
+            pet.feed();
+            System.out.println("Yummy!");
+            continueGame = true;
+        } else if (input.equals("PLAY")) {
+            pet.play();
+            System.out.println("What a fun game!");
+            continueGame = true;
+        } else if (input.equals("BED")) {
+            pet.sleep();
+            System.out.println("Yawn... Zzzzz...");
+            continueGame = true;
+        } else if (input.equals("POOP")) {
+            pet.poop();
+            System.out.println("Don't forget to flush!");
+            continueGame = true;
+        } else if (input.equals("EXIT")) {
+            System.out.println("Goodbye!");
+            continueGame = false;
+        } else {
+            System.out.println("Tamagotchi does not understand. Please try again.");
+            continueGame = true;
         }
+        return continueGame;
     }
 }
