@@ -111,4 +111,14 @@ public class PetTests {
         assertEquals(1, pet.getTiredness());
     }
 
+    @Test
+    void testPoop_decreaseFullnessToOne() {
+        // arrange
+        // act
+        pet.poop();
+
+        // assert
+        assertEquals(1, pet.getFullness());
+    }
+
 }

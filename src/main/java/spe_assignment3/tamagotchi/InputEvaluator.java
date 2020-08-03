@@ -18,7 +18,7 @@ public class InputEvaluator {
                 pet.play();
                 System.out.println("What a fun game!");
                 return true;
-            case "SLEEP":
+            case "BED":
                 pet.sleep();
                 System.out.println("Yawn... Zzzzz...");
                 return true;

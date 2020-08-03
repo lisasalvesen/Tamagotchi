@@ -39,6 +39,10 @@ public class Pet {
         tiredness = 1;
     }
 
+    public void poop() {
+        fullness = 1;
+    }
+
     public int getHungriness() {
         return hungriness;
     }
