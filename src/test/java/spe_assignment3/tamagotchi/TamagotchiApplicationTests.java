@@ -5,6 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
@@ -17,17 +18,17 @@ class TamagotchiApplicationTests {
         // arrange
         TamagotchiApplication application = new TamagotchiApplication();
         BufferedReader in = mock(BufferedReader.class);
-        InputEvaluator reader = mock(InputEvaluator.class);
         when(in.readLine()).thenReturn("FEED", "EXIT");
-        when(reader.evaluateInput("FEED")).thenReturn(true);
-        when(reader.evaluateInput("EXIT")).thenReturn(false);
+
+        final PrintStream out = mock(PrintStream.class);
+        System.setOut(out);
 
         // act
-        application.start(in, reader);
+        application.start(in);
 
         // assert
         verify(in, times(2)).readLine();
-        verify(reader, times(1)).evaluateInput("FEED");
-        verify(reader, times(1)).evaluateInput("EXIT");
+        verify(out).println("Yummy!");
+        verify(out).println("Goodbye!");
     }
 }

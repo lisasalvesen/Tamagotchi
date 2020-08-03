@@ -13,7 +13,6 @@ public class InputEvaluatorTest {
     void testEvaluateInput_feed() {
         // arrange
         final Pet pet = mock(Pet.class);
-        when(pet.feed()).thenReturn("Yummy!");
         final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "FEED";
         final PrintStream out = mock(PrintStream.class);
@@ -32,7 +31,6 @@ public class InputEvaluatorTest {
     void testEvaluateInput_play() {
         // arrange
         final Pet pet = mock(Pet.class);
-        when(pet.play()).thenReturn("What a fun game!");
         final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "PLAY";
         final PrintStream out = mock(PrintStream.class);
@@ -48,7 +46,25 @@ public class InputEvaluatorTest {
     }
 
     @Test
-    void testEvaluateInput_exit() {
+    void testEvaluateInput_petSleeps() {
+        // arrange
+        final Pet pet = mock(Pet.class);
+        final InputEvaluator reader = new InputEvaluator(pet);
+        final String input = "SLEEP";
+        final PrintStream out = mock(PrintStream.class);
+        System.setOut(out);
+
+        // act
+        boolean result = reader.evaluateInput(input);
+
+        // assert
+        verify(pet, times(1)).sleep();
+        verify(out).println("Yawn... Zzzzz...");
+        assertTrue(result);
+    }
+
+    @Test
+    void testEvaluateInput_exitGame() {
         // arrange
         final Pet pet = mock(Pet.class);
         final InputEvaluator reader = new InputEvaluator(pet);
@@ -65,7 +81,7 @@ public class InputEvaluatorTest {
     }
 
     @Test
-    void testEvaluateInput_invalidInput() {
+    void testEvaluateInput_invalidInput_user() {
         // arrange
         final Pet pet = mock(Pet.class);
         final InputEvaluator reader = new InputEvaluator(pet);

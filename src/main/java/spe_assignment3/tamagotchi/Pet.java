@@ -13,7 +13,7 @@ public class Pet {
         tiredness = tired;
     }
 
-    public String feed() {
+    public void feed() {
         hungriness -= 20;
         fullness += 20;
         if (fullness > 100) {
@@ -22,10 +22,9 @@ public class Pet {
         if (hungriness < 1) {
             hungriness = 1;
         }
-        return "Yummy!";
     }
 
-    public String play() {
+    public void play() {
         happiness += 20;
         tiredness += 20;
         if (happiness > 100) {
@@ -34,7 +33,6 @@ public class Pet {
         if (tiredness > 100) {
             tiredness = 100;
         }
-        return "What a fun game!";
     }
 
     public void sleep() {

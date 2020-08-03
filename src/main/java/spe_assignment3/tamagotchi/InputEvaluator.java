@@ -11,12 +11,16 @@ public class InputEvaluator {
         String output;
         switch (input) {
             case "FEED":
-                output = pet.feed();
-                System.out.println(output);
+                pet.feed();
+                System.out.println("Yummy!");
                 return true;
             case "PLAY":
-                output = pet.play();
-                System.out.println(output);
+                pet.play();
+                System.out.println("What a fun game!");
+                return true;
+            case "SLEEP":
+                pet.sleep();
+                System.out.println("Yawn... Zzzzz...");
                 return true;
             case "EXIT":
                 System.out.println("Goodbye!");

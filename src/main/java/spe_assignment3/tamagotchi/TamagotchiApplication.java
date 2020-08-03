@@ -10,7 +10,9 @@ import java.io.InputStreamReader;
 @SpringBootApplication
 public class TamagotchiApplication {
 
-    public void start(BufferedReader stdin, InputEvaluator reader) throws IOException {
+    public void start(BufferedReader stdin) throws IOException {
+        Pet pet = new Pet(50, 50, 50, 50);
+        InputEvaluator reader = new InputEvaluator(pet);
         boolean running = true;
 
         while (running) {
@@ -21,10 +23,8 @@ public class TamagotchiApplication {
 
     public static void main(String[] args) throws IOException {
         BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-        Pet pet = new Pet(50, 50, 50, 50);
-        InputEvaluator reader = new InputEvaluator(pet);
         SpringApplication.run(TamagotchiApplication.class, args);
-        new TamagotchiApplication().start(stdin, reader);
+        new TamagotchiApplication().start(stdin);
     }
 
 }
