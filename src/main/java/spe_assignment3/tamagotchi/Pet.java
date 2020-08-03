@@ -25,7 +25,7 @@ public class Pet {
         return "Yummy!";
     }
 
-    public void play() {
+    public String play() {
         happiness += 20;
         tiredness += 20;
         if (happiness > 100) {
@@ -34,6 +34,7 @@ public class Pet {
         if (tiredness > 100) {
             tiredness = 100;
         }
+        return "What a fun game!";
     }
 
     public int getHungriness() {

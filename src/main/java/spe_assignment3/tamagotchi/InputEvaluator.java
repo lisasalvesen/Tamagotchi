@@ -14,6 +14,10 @@ public class InputEvaluator {
                 output = pet.feed();
                 System.out.println(output);
                 return true;
+            case "PLAY":
+                output = pet.play();
+                System.out.println(output);
+                return true;
             case "EXIT":
                 System.out.println("Goodbye!");
                 return false;

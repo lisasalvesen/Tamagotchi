@@ -29,6 +29,25 @@ public class InputEvaluatorTest {
     }
 
     @Test
+    void testEvaluateInput_play() {
+        // arrange
+        final Pet pet = mock(Pet.class);
+        when(pet.play()).thenReturn("What a fun game!");
+        final InputEvaluator reader = new InputEvaluator(pet);
+        final String input = "PLAY";
+        final PrintStream out = mock(PrintStream.class);
+        System.setOut(out);
+
+        // act
+        boolean result = reader.evaluateInput(input);
+
+        // assert
+        verify(pet, times(1)).play();
+        verify(out).println("What a fun game!");
+        assertTrue(result);
+    }
+
+    @Test
     void testEvaluateInput_exit() {
         // arrange
         final Pet pet = mock(Pet.class);
