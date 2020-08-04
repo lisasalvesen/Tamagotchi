@@ -13,6 +13,10 @@ public class Pet {
         tiredness = tired;
     }
 
+    public void changeStats() {
+        hungriness++;
+    }
+
     public void feed() {
         hungriness -= 20;
         fullness += 20;

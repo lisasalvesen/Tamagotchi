@@ -14,7 +14,17 @@ public class PetTests {
     }
 
     @Test
-    void testFeedingPet_decreaseHungriness() {
+    void testChangeStats_hungrinessIncreasesByOne() {
+        // arrange
+        // act
+        pet.changeStats();
+
+        // assert
+        assertEquals(51, pet.getHungriness());
+    }
+
+    @Test
+    void testFeedingPet_hungrinessDecreasesBy20() {
         // arrange
         // act
         pet.feed();
@@ -24,7 +34,7 @@ public class PetTests {
     }
 
     @Test
-    void testFeedPet_increaseFullness() {
+    void testFeedPet_fullnessIncreasesBy20() {
         // arrange
         // act
         pet.feed();
@@ -58,7 +68,7 @@ public class PetTests {
     }
 
     @Test
-    void testPlay_increaseHappiness() {
+    void testPlay_happinessIncreasesBy20() {
         // arrange
         // act
         pet.play();
@@ -68,7 +78,7 @@ public class PetTests {
     }
 
     @Test
-    void testPlay_increaseTiredness() {
+    void testPlay_tirednessIncreasesBy20() {
         // arrange
         // act
         pet.play();
@@ -102,7 +112,7 @@ public class PetTests {
     }
 
     @Test
-    void testSleep_decreaseTirednessToOne() {
+    void testSleep_tirednessDecreasesToOne() {
         // arrange
         // act
         pet.sleep();
@@ -112,7 +122,7 @@ public class PetTests {
     }
 
     @Test
-    void testPoop_decreaseFullnessToOne() {
+    void testPoop_decreasesFullnessToOne() {
         // arrange
         // act
         pet.poop();
