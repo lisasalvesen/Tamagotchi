@@ -44,6 +44,18 @@ public class PetTests {
     }
 
     @Test
+    void testChangeStats_hungrinessNeverHigherThan100() {
+        // arrange
+        Pet pet = new Pet(100, 50, 50,50);
+
+        // act
+        pet.changeStats();
+
+        // assert
+        assertEquals(100, pet.getHungriness());
+    }
+
+    @Test
     void testFeedingPet_hungrinessDecreasesBy20() {
         // arrange
         // act

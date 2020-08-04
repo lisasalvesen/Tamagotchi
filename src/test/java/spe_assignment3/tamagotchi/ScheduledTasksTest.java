@@ -12,11 +12,14 @@ public class ScheduledTasksTest {
     * */
     @Test
     void testCallChangeStats_callPetChangeStats_statsIncreasedOrDecreased() {
+        // arrange
         Pet pet = new Pet(50,50,50,50);
         ScheduledTasks tasks = new ScheduledTasks(pet);
 
+        // act
         tasks.callChangeStats();
 
+        // assert
         assertEquals(51, pet.getHungriness());
         assertEquals(51, pet.getTiredness());
         assertEquals(49, pet.getHappiness());
