@@ -25,6 +25,9 @@ public class Pet {
         if (hungriness > 100) {
             hungriness = 100;
         }
+        if (tiredness > 100) {
+            tiredness = 100;
+        }
     }
 
     public void feed() {
