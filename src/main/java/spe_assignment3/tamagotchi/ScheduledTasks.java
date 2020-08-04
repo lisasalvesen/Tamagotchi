@@ -8,11 +8,13 @@ public class ScheduledTasks {
     private final Pet pet;
     private final StatusPrinter printer;
     private int oldHungriness;
+    private int oldFullness;
 
     public ScheduledTasks(Pet pet, StatusPrinter printer) {
         this.pet = pet;
         this.printer = printer;
         oldHungriness = pet.getHungriness() / 10;
+        oldFullness = pet.getFullness() / 10;
     }
 
     @Scheduled(fixedRate = 2000)
@@ -23,8 +25,14 @@ public class ScheduledTasks {
     @Scheduled(fixedRate = 500)
     public void checkForStatChanges() {
         int newHungriness = pet.getHungriness() / 10;
+        int newFullness = pet.getFullness() / 10;
 
         if (oldHungriness < newHungriness || oldHungriness > newHungriness) {
             oldHungriness = newHungriness;
+            oldFullness = newFullness;
+            printer.printStatus(pet);
+        } else if (oldFullness < newFullness) {
+            oldHungriness = newHungriness;
+            oldFullness = newFullness;
             printer.printStatus(pet);
         }
