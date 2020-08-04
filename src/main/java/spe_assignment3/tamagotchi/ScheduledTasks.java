@@ -23,7 +23,8 @@ public class ScheduledTasks {
     @Scheduled(fixedRate = 500)
     public void checkForStatChanges() {
         int newHungriness = pet.getHungriness() / 10;
-        if (oldHungriness < newHungriness) {
+
+        if (oldHungriness < newHungriness || oldHungriness > newHungriness) {
             oldHungriness = newHungriness;
             printer.printStatus(pet);
         }
