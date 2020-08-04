@@ -6,31 +6,35 @@ import org.springframework.stereotype.Component;
 public class StatusPrinter {
 
     public void printStatus(Pet pet) {
-        StringBuilder hungriness = new StringBuilder("hungriness: ");
-        int hungrinessRoundedDown = pet.getHungriness() / 10;
-        hungriness.append(buildProgressBar(hungrinessRoundedDown));
-        hungriness.append(hungrinessRoundedDown).append("0/100");
+        StringBuilder hungrinessString = new StringBuilder("hungriness: ");
+        int hungriness = pet.getHungriness();
+        int hungrinessRoundedDown = hungriness / 10;
+        hungrinessString.append(buildProgressBar(hungrinessRoundedDown));
+        hungrinessString.append(hungriness).append("/100");
 
-        StringBuilder fullness = new StringBuilder("fullness: ");
-        int fullnessRoundedDown = pet.getFullness() / 10;
-        fullness.append(buildProgressBar(fullnessRoundedDown));
-        fullness.append(fullnessRoundedDown).append("0/100");
+        StringBuilder fullnessString = new StringBuilder("fullness: ");
+        int fullness = pet.getFullness();
+        int fullnessRoundedDown = fullness / 10;
+        fullnessString.append(buildProgressBar(fullnessRoundedDown));
+        fullnessString.append(fullness).append("/100");
 
-        StringBuilder happiness = new StringBuilder("happiness: ");
-        int happinessRoundedDown = pet.getHappiness() / 10;
-        happiness.append(buildProgressBar(happinessRoundedDown));
-        happiness.append(happinessRoundedDown).append("0/100");
+        StringBuilder happinessString = new StringBuilder("happiness: ");
+        int happiness = pet.getHappiness();
+        int happinessRoundedDown = happiness / 10;
+        happinessString.append(buildProgressBar(happinessRoundedDown));
+        happinessString.append(happiness).append("/100");
 
-        StringBuilder tiredness = new StringBuilder("tiredness: ");
-        int tirednessRoundedDown = pet.getTiredness() / 10;
-        tiredness.append(buildProgressBar(tirednessRoundedDown));
-        tiredness.append(tirednessRoundedDown).append("0/100");
+        StringBuilder tirednessString = new StringBuilder("tiredness: ");
+        int tiredness = pet.getTiredness();
+        int tirednessRoundedDown = tiredness / 10;
+        tirednessString.append(buildProgressBar(tirednessRoundedDown));
+        tirednessString.append(tiredness).append("/100");
 
         System.out.println("(＾▽＾)");
-        System.out.println(hungriness.toString());
-        System.out.println(fullness.toString());
-        System.out.println(happiness.toString());
-        System.out.println(tiredness.toString());
+        System.out.println(hungrinessString.toString());
+        System.out.println(fullnessString.toString());
+        System.out.println(happinessString.toString());
+        System.out.println(tirednessString.toString());
         System.out.println("What do you want to do with Tamagotchi? (FEED, PLAY, BED, POOP)\n");
     }
 

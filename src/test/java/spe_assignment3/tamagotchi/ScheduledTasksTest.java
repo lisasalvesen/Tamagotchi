@@ -108,6 +108,19 @@ public class ScheduledTasksTest {
     }
 
     @Test
+    void testCheckForStatChange_newTirednessLower() {
+        // arrange
+        pet.setTiredness(30);
+
+        // act
+        tasks.checkForStatChanges();
+
+        // assert
+        verify(printer, times(1)).printStatus(pet);
+    }
+
+
+    @Test
     void testCheckForStatChange_newTirednessHigher() {
         // arrange
         pet.setTiredness(70);

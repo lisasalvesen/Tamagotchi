@@ -46,7 +46,7 @@ public class PetTests {
     @Test
     void testChangeStats_hungrinessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(100, 50, 50,50);
+        pet.setHungriness(100);
 
         // act
         pet.changeStats();
@@ -58,7 +58,7 @@ public class PetTests {
     @Test
     void testChangeStats_tirednessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(50, 50, 50,100);
+        pet.setTiredness(100);
 
         // act
         pet.changeStats();
@@ -70,7 +70,7 @@ public class PetTests {
     @Test
     void testChangeStats_happinessNeverLowerThanOne() {
         // arrange
-        Pet pet = new Pet(50, 50, 1,50);
+        pet.setHappiness(1);
 
         // act
         pet.changeStats();
@@ -102,7 +102,7 @@ public class PetTests {
     @Test
     void testFeedPet_fullnessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(50, 90, 50, 50);
+        pet.setFullness(100);
 
         // act
         pet.feed();
@@ -114,7 +114,7 @@ public class PetTests {
     @Test
     void testFeedPet_hungrinessNeverLowerThanOne() {
         // arrange
-        Pet pet = new Pet(1, 50, 50, 50);
+        pet.setHungriness(1);
 
         // act
         pet.feed();
@@ -146,7 +146,7 @@ public class PetTests {
     @Test
     void testPlay_happinessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(50, 50, 90, 50);
+        pet.setHappiness(100);
 
         // act
         pet.play();
@@ -158,7 +158,7 @@ public class PetTests {
     @Test
     void testPlay_tirednessNeverHigherThan100() {
         // arrange
-        Pet pet = new Pet(50, 50, 50, 90);
+        pet.setTiredness(100);
 
         // act
         pet.play();

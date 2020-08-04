@@ -34,29 +34,24 @@ public class ScheduledTasks {
         int newTiredness = pet.getTiredness() / 10;
 
         if (oldHungriness < newHungriness || oldHungriness > newHungriness) {
-            oldHungriness = newHungriness;
-            oldFullness = newFullness;
-            oldHappiness = newHappiness;
-            oldTiredness = newTiredness;
+            updateStats(newHungriness, newFullness, newHappiness, newTiredness);
             printer.printStatus(pet);
         } else if (oldFullness < newFullness || oldFullness > newFullness) {
-            oldHungriness = newHungriness;
-            oldFullness = newFullness;
-            oldHappiness = newHappiness;
-            oldTiredness = newTiredness;
+            updateStats(newHungriness, newFullness, newHappiness, newTiredness);
             printer.printStatus(pet);
         } else if (oldHappiness < newHappiness || oldHappiness > newHappiness) {
-            oldHungriness = newHungriness;
-            oldFullness = newFullness;
-            oldHappiness = newHappiness;
-            oldTiredness = newTiredness;
+            updateStats(newHungriness, newFullness, newHappiness, newTiredness);
             printer.printStatus(pet);
-        } else if (oldTiredness < newTiredness) {
-            oldHungriness = newHungriness;
-            oldFullness = newFullness;
-            oldHappiness = newHappiness;
-            oldTiredness = newTiredness;
+        } else if (oldTiredness < newTiredness || oldTiredness > newTiredness) {
+            updateStats(newHungriness, newFullness, newHappiness, newTiredness);
             printer.printStatus(pet);
         }
+    }
+
+    private void updateStats(int hungry, int full, int happy, int tired) {
+        oldHungriness = hungry;
+        oldFullness = full;
+        oldHappiness = happy;
+        oldTiredness = tired;
     }
 }
