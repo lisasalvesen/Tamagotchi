@@ -68,6 +68,18 @@ public class PetTests {
     }
 
     @Test
+    void testChangeStats_happinessNeverLowerThanOne() {
+        // arrange
+        Pet pet = new Pet(50, 50, 1,50);
+
+        // act
+        pet.changeStats();
+
+        // assert
+        assertEquals(1, pet.getHappiness());
+    }
+
+    @Test
     void testFeedingPet_hungrinessDecreasesBy20() {
         // arrange
         // act

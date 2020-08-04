@@ -18,38 +18,28 @@ public class Pet {
     }
 
     public void changeStats() {
-        hungriness++;
-        tiredness++;
-        happiness--;
+        int change = 1;
+        hungriness = checkStatOutOfBounds(hungriness + change);
+        tiredness = checkStatOutOfBounds(tiredness + change);
+        happiness = checkStatOutOfBounds(happiness - change);
+    }
 
-        if (hungriness > 100) {
-            hungriness = 100;
-        }
-        if (tiredness > 100) {
-            tiredness = 100;
-        }
+    private int checkStatOutOfBounds(int originalStat) {
+        if (originalStat < 1) {
+            return 1;
+        } else return Math.min(originalStat, 100);
     }
 
     public void feed() {
-        hungriness -= 20;
-        fullness += 20;
-        if (fullness > 100) {
-            fullness = 100;
-        }
-        if (hungriness < 1) {
-            hungriness = 1;
-        }
+        int change = 20;
+        hungriness = checkStatOutOfBounds(hungriness - change);
+        fullness = checkStatOutOfBounds(fullness + change);
     }
 
     public void play() {
-        happiness += 20;
-        tiredness += 20;
-        if (happiness > 100) {
-            happiness = 100;
-        }
-        if (tiredness > 100) {
-            tiredness = 100;
-        }
+        int change = 20;
+        happiness = checkStatOutOfBounds(happiness + change);
+        tiredness = checkStatOutOfBounds(tiredness + change);
     }
 
     public void sleep() {
