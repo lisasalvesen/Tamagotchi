@@ -10,7 +10,7 @@ public class Pet {
     private int happiness;
     private int tiredness;
 
-    public Pet(@Value("50") int hunger, @Value("50") int full, @Value("50") int happy, @Value("50") int tired) {
+    public Pet(@Value("50") int hunger, @Value("25") int full, @Value("75") int happy, @Value("50") int tired) {
         hungriness = hunger;
         fullness = full;
         happiness = happy;

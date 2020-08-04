@@ -28,7 +28,7 @@ class TamagotchiApplicationTests {
 
         // assert
         verify(in, times(2)).readLine();
-        verify(out).println("Yummy!");
-        verify(out).println("Goodbye!");
+        verify(out).println("Yummy!\n");
+        verify(out).println("Goodbye!\n");
     }
 }

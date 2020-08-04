@@ -23,7 +23,7 @@ public class InputEvaluatorTest {
 
         // assert
         verify(pet, times(1)).feed();
-        verify(out).println("Yummy!");
+        verify(out).println("Yummy!\n");
         assertTrue(result);
     }
 
@@ -41,7 +41,7 @@ public class InputEvaluatorTest {
 
         // assert
         verify(pet, times(1)).play();
-        verify(out).println("What a fun game!");
+        verify(out).println("What a fun game!\n");
         assertTrue(result);
     }
 
@@ -59,7 +59,7 @@ public class InputEvaluatorTest {
 
         // assert
         verify(pet, times(1)).sleep();
-        verify(out).println("Yawn... Zzzzz...");
+        verify(out).println("Yawn... Zzzzz...\n");
         assertTrue(result);
     }
 
@@ -77,7 +77,7 @@ public class InputEvaluatorTest {
 
         // assert
         verify(pet, times(1)).poop();
-        verify(out).println("Don't forget to flush!");
+        verify(out).println("Don't forget to flush!\n");
         assertTrue(result);
     }
 
@@ -94,7 +94,7 @@ public class InputEvaluatorTest {
         boolean result = reader.evaluateInput(input);
 
         // assert
-        verify(out).println("Goodbye!");
+        verify(out).println("Goodbye!\n");
         assertFalse(result);
     }
 
@@ -111,7 +111,7 @@ public class InputEvaluatorTest {
         boolean result = reader.evaluateInput(input);
 
         // assert
-        verify(out).println("Tamagotchi does not understand. Please try again.");
+        verify(out).println("Tamagotchi does not understand. Please try again.\n");
         assertTrue(result);
     }
 
