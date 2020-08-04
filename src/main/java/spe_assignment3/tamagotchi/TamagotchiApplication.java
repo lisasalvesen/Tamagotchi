@@ -13,10 +13,15 @@ import java.io.InputStreamReader;
 public class TamagotchiApplication {
 
     public void start(BufferedReader stdin) throws IOException {
-        Pet pet = new Pet(50, 50, 50, 50);
-        InputEvaluator reader = new InputEvaluator(pet);
-        new ScheduledTasks(pet);
+        // Pet values initialized using @value in Pet class.
+        final Pet pet = new Pet(50, 25, 75, 50);
+        final InputEvaluator reader = new InputEvaluator(pet);
+        final StatusPrinter printer = new StatusPrinter();
         boolean running = true;
+
+        new ScheduledTasks(pet, printer);
+
+        printer.printStatus(pet);
 
         while (running) {
             String trimmedInput = stdin.readLine().trim();

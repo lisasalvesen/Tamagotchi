@@ -1,10 +1,22 @@
 package spe_assignment3.tamagotchi;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class ScheduledTasksTest {
+    Pet pet;
+    ScheduledTasks tasks;
+    StatusPrinter printer;
+
+    @BeforeEach
+    public void init() {
+        pet = spy(new Pet(50,50,50,50));
+        printer = spy(new StatusPrinter());
+        tasks = new ScheduledTasks(pet, printer);
+    }
 
     /*
     * This test only tests the logic inside of the method.
@@ -13,16 +25,26 @@ public class ScheduledTasksTest {
     @Test
     void testCallChangeStats_callPetChangeStats_statsIncreasedOrDecreased() {
         // arrange
-        Pet pet = new Pet(50,50,50,50);
-        ScheduledTasks tasks = new ScheduledTasks(pet);
-
         // act
         tasks.callChangeStats();
 
         // assert
+        verify(pet, times(1)).changeStats();
         assertEquals(51, pet.getHungriness());
         assertEquals(51, pet.getTiredness());
         assertEquals(49, pet.getHappiness());
+    }
+
+    @Test
+    void testCheckForStatChange_newHungrinessHigher() {
+        // arrange
+        pet.setHungriness(70);
+
+        // act
+        tasks.checkForStatChanges();
+
+        // assert
+        verify(printer, times(1)).printStatus(pet);
     }
 
 }

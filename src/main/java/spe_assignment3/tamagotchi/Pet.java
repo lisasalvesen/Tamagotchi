@@ -65,4 +65,8 @@ public class Pet {
     public int getTiredness() {
         return tiredness;
     }
+
+    public void setHungriness(int i) {
+        this.hungriness = i;
+    }
 }
