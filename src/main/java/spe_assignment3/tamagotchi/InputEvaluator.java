@@ -10,8 +10,8 @@ public class InputEvaluator {
     public boolean evaluateInput(String input) {
         boolean continueGame;
         /*
-        I would prefer to use a switch statement in this case, but I had problems
-        in the past to get branch coverage in switch statements, so I decided on if/else.
+        * I would prefer to use a switch statement in this case, but I had problems/bugs
+        * in the past to receive correct branch coverage in switch statements, so I decided on if/else.
         */
         if (input.equals("FEED")) {
             pet.feed();

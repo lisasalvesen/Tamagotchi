@@ -1,12 +1,16 @@
 package spe_assignment3.tamagotchi;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Pet {
     private int hungriness;
     private int fullness;
     private int happiness;
     private int tiredness;
 
-    public Pet(int hunger, int full, int happy, int tired) {
+    public Pet(@Value("50") int hunger, @Value("50") int full, @Value("50") int happy, @Value("50") int tired) {
         hungriness = hunger;
         fullness = full;
         happiness = happy;
