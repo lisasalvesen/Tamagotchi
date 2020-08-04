@@ -73,4 +73,8 @@ public class Pet {
     public void setFullness(int i) {
         this.fullness = i;
     }
+
+    public void setHappiness(int i) {
+        this.happiness = i;
+    }
 }
