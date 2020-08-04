@@ -40,7 +40,7 @@ public class ScheduledTasks {
             oldFullness = newFullness;
             oldHappiness = newHappiness;
             printer.printStatus(pet);
-        } else if (oldHappiness < newHappiness) {
+        } else if (oldHappiness < newHappiness || oldHappiness > newHappiness) {
             oldHungriness = newHungriness;
             oldFullness = newFullness;
             oldHappiness = newHappiness;

@@ -83,6 +83,17 @@ public class ScheduledTasksTest {
         verify(printer, times(1)).printStatus(pet);
     }
 
+    @Test
+    void testCheckForStatChange_newHappinessLower() {
+        // arrange
+        pet.setHappiness(30);
+
+        // act
+        tasks.checkForStatChanges();
+
+        // assert
+        verify(printer, times(1)).printStatus(pet);
+    }
 
     @Test
     void testCheckForStatChange_newHappinessHigher() {
