@@ -24,6 +24,16 @@ public class PetTests {
     }
 
     @Test
+    void testChangeStats_tirednessIncreasesByOne() {
+        // arrange
+        // act
+        pet.changeStats();
+
+        // assert
+        assertEquals(51, pet.getTiredness());
+    }
+
+    @Test
     void testFeedingPet_hungrinessDecreasesBy20() {
         // arrange
         // act

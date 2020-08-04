@@ -15,6 +15,7 @@ public class Pet {
 
     public void changeStats() {
         hungriness++;
+        tiredness++;
     }
 
     public void feed() {
