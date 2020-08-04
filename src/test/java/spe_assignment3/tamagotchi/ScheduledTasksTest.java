@@ -71,4 +71,16 @@ public class ScheduledTasksTest {
         verify(printer, times(1)).printStatus(pet);
     }
 
+    @Test
+    void testCheckForStatChange_newFullnessLower() {
+        // arrange
+        pet.setFullness(30);
+
+        // act
+        tasks.checkForStatChanges();
+
+        // assert
+        verify(printer, times(1)).printStatus(pet);
+    }
+
 }

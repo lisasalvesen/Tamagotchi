@@ -31,7 +31,7 @@ public class ScheduledTasks {
             oldHungriness = newHungriness;
             oldFullness = newFullness;
             printer.printStatus(pet);
-        } else if (oldFullness < newFullness) {
+        } else if (oldFullness < newFullness || oldFullness > newFullness) {
             oldHungriness = newHungriness;
             oldFullness = newFullness;
             printer.printStatus(pet);
