@@ -80,23 +80,23 @@ public class PetTests {
     }
 
     @Test
-    void testFeedingPet_decreasesHungrinessBy50() {
+    void testFeedingPet_decreasesHungrinessBy25() {
         // arrange
         // act
         pet.feed();
 
         // assert
-        assertEquals(1, pet.getHungriness());
+        assertEquals(25, pet.getHungriness());
     }
 
     @Test
-    void testFeedPet_increasesFullnessBy50() {
+    void testFeedPet_increasesFullnessBy25() {
         // arrange
         // act
         pet.feed();
 
         // assert
-        assertEquals(100, pet.getFullness());
+        assertEquals(75, pet.getFullness());
     }
 
     @Test
@@ -124,23 +124,23 @@ public class PetTests {
     }
 
     @Test
-    void testPlay_increasesHappinessBy50() {
+    void testPlay_increasesHappinessBy25() {
         // arrange
         // act
         pet.play();
 
         // assert
-        assertEquals(100, pet.getHappiness());
+        assertEquals(75, pet.getHappiness());
     }
 
     @Test
-    void testPlay_increasesTirednessBy50() {
+    void testPlay_increasesTirednessBy25() {
         // arrange
         // act
         pet.play();
 
         // assert
-        assertEquals(100, pet.getTiredness());
+        assertEquals(75, pet.getTiredness());
     }
 
     @Test
