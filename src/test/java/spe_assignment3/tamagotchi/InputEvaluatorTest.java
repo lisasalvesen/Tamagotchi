@@ -1,5 +1,6 @@
 package spe_assignment3.tamagotchi;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.PrintStream;
@@ -9,11 +10,20 @@ import static org.mockito.Mockito.*;
 
 public class InputEvaluatorTest {
 
+    Pet pet;
+    StatusPrinter printer;
+    InputEvaluator reader;
+
+    @BeforeEach
+    void init() {
+        pet = mock(Pet.class);
+        printer = mock(StatusPrinter.class);
+        reader = new InputEvaluator(pet, printer);
+    }
+
     @Test
     void testEvaluateInput_inputFeed_petEats() {
         // arrange
-        final Pet pet = mock(Pet.class);
-        final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "FEED";
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);
@@ -30,8 +40,6 @@ public class InputEvaluatorTest {
     @Test
     void testEvaluateInput_inputPlay_playWithPet() {
         // arrange
-        final Pet pet = mock(Pet.class);
-        final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "PLAY";
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);
@@ -48,8 +56,6 @@ public class InputEvaluatorTest {
     @Test
     void testEvaluateInput_inputBed_petSleeps() {
         // arrange
-        final Pet pet = mock(Pet.class);
-        final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "BED";
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);
@@ -66,8 +72,6 @@ public class InputEvaluatorTest {
     @Test
     void testEvaluateInput_inputPoop_petPoops() {
         // arrange
-        final Pet pet = mock(Pet.class);
-        final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "POOP";
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);
@@ -84,8 +88,6 @@ public class InputEvaluatorTest {
     @Test
     void testEvaluateInput_inputExit_exitGame() {
         // arrange
-        final Pet pet = mock(Pet.class);
-        final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "EXIT";
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);
@@ -101,8 +103,6 @@ public class InputEvaluatorTest {
     @Test
     void testEvaluateInput_invalidInput_userHasToTryAgain() {
         // arrange
-        final Pet pet = mock(Pet.class);
-        final InputEvaluator reader = new InputEvaluator(pet);
         final String input = "invalid";
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);

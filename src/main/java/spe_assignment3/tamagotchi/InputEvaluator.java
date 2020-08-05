@@ -2,9 +2,12 @@ package spe_assignment3.tamagotchi;
 
 public class InputEvaluator {
 
-    private Pet pet;
-    public InputEvaluator(final Pet pet) {
+    private final Pet pet;
+    private final StatusPrinter printer;
+
+    public InputEvaluator(final Pet pet, final StatusPrinter printer) {
         this.pet = pet;
+        this.printer = printer;
     }
 
     public boolean evaluateInput(String input) {
@@ -36,6 +39,7 @@ public class InputEvaluator {
             System.out.println("Tamagotchi does not understand. Please try again.\n");
             continueGame = true;
         }
+        printer.printStatus(pet);
         return continueGame;
     }
 }

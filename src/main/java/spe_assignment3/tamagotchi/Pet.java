@@ -31,13 +31,13 @@ public class Pet {
     }
 
     public void feed() {
-        int change = 20;
+        int change = 50;
         hungriness = checkStatOutOfBounds(hungriness - change);
         fullness = checkStatOutOfBounds(fullness + change);
     }
 
     public void play() {
-        int change = 20;
+        int change = 50;
         happiness = checkStatOutOfBounds(happiness + change);
         tiredness = checkStatOutOfBounds(tiredness + change);
     }

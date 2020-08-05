@@ -14,7 +14,7 @@ public class PetTests {
     }
 
     @Test
-    void testChangeStats_hungrinessIncreasesByOne() {
+    void testChangeStats_increasesHungrinessByOne() {
         // arrange
         // act
         pet.changeStats();
@@ -24,7 +24,7 @@ public class PetTests {
     }
 
     @Test
-    void testChangeStats_tirednessIncreasesByOne() {
+    void testChangeStats_increasesTirednessByOne() {
         // arrange
         // act
         pet.changeStats();
@@ -34,7 +34,7 @@ public class PetTests {
     }
 
     @Test
-    void testChangeStats_happinessDecreasesByOne() {
+    void testChangeStats_decreasesHappinessByOne() {
         // arrange
         // act
         pet.changeStats();
@@ -80,23 +80,23 @@ public class PetTests {
     }
 
     @Test
-    void testFeedingPet_hungrinessDecreasesBy20() {
+    void testFeedingPet_decreasesHungrinessBy50() {
         // arrange
         // act
         pet.feed();
 
         // assert
-        assertEquals(30, pet.getHungriness());
+        assertEquals(1, pet.getHungriness());
     }
 
     @Test
-    void testFeedPet_fullnessIncreasesBy20() {
+    void testFeedPet_increasesFullnessBy50() {
         // arrange
         // act
         pet.feed();
 
         // assert
-        assertEquals(70, pet.getFullness());
+        assertEquals(100, pet.getFullness());
     }
 
     @Test
@@ -124,23 +124,23 @@ public class PetTests {
     }
 
     @Test
-    void testPlay_happinessIncreasesBy20() {
+    void testPlay_increasesHappinessBy50() {
         // arrange
         // act
         pet.play();
 
         // assert
-        assertEquals(70, pet.getHappiness());
+        assertEquals(100, pet.getHappiness());
     }
 
     @Test
-    void testPlay_tirednessIncreasesBy20() {
+    void testPlay_increasesTirednessBy50() {
         // arrange
         // act
         pet.play();
 
         // assert
-        assertEquals(70, pet.getTiredness());
+        assertEquals(100, pet.getTiredness());
     }
 
     @Test
@@ -168,7 +168,7 @@ public class PetTests {
     }
 
     @Test
-    void testSleep_tirednessDecreasesToOne() {
+    void testSleep_decreasesTirednessToOne() {
         // arrange
         // act
         pet.sleep();

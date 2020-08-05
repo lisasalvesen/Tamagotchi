@@ -3,10 +3,14 @@ package spe_assignment3.tamagotchi;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 @Service
 public class ScheduledTasks {
     private final Pet pet;
     private final StatusPrinter printer;
+    private final Timer updateTimer;
     private int oldHungriness;
     private int oldFullness;
     private int oldHappiness;
@@ -15,19 +19,24 @@ public class ScheduledTasks {
     public ScheduledTasks(Pet pet, StatusPrinter printer) {
         this.pet = pet;
         this.printer = printer;
+        updateTimer = new Timer();
         oldHungriness = pet.getHungriness() / 10;
         oldFullness = pet.getFullness() / 10;
         oldHappiness = pet.getHappiness() / 10;
         oldTiredness = pet.getTiredness() / 10;
     }
 
-    @Scheduled(fixedRate = 2000)
-    public void callChangeStats() {
-        pet.changeStats();
+    public void callChangeStatsScheduled() {
+        this.updateTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                pet.changeStats();
+                checkForStatChanges();
+            }
+        }, 1000, 3000);
     }
 
-    @Scheduled(fixedRate = 500)
-    public void checkForStatChanges() {
+    private void checkForStatChanges() {
         int newHungriness = pet.getHungriness() / 10;
         int newFullness = pet.getFullness() / 10;
         int newHappiness = pet.getHappiness() / 10;
